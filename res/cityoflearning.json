@@ -1,1 +1,1 @@
-{"getOrganizationBadges":{"method":"GET","path":"\/partner_api\/v1\/orgs\/{org_id}\/badges"}}
+{"getOrganizationBadges":{"method":"GET","path":"\/partner_api\/v1\/orgs\/{org_id}\/badges.json"}}
