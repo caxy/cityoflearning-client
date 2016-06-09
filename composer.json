@@ -1,0 +1,40 @@
+{
+    "name": "caxy/cityoflearning-client",
+    "description": "Client for City of Learning API",
+    "homepage": "https://github.com/caxy/cityoflearning-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bdoherty@caxy.com",
+            "homepage": "https://www.caxy.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "guzzlehttp/command": "^0.9",
+        "guzzlehttp/guzzle": "^6.2",
+        "namshi/jose": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Caxy\\CityOfLearning\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Caxy\\CityOfLearning\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
