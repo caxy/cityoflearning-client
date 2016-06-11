@@ -14,6 +14,14 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class ServiceClient.
+ *
+ * @method ResultInterface postBadge(array $args = []) get systems
+ * @method ResultInterface getOrganizationBadges(array $args = []) get systems
+ * @method ResultInterface getOrganizationBadge(array $args = []) get systems
+ * @method ResultInterface putBadge(array $args = []) get systems
+ * @method ResultInterface issueBadge(array $args = []) get systems
+ * @method ResultInterface getPrograms(array $args = []) get systems
+ * @method ResultInterface getProgram(array $args = []) get systems
  */
 class ServiceClient extends GuzzleHttp\Command\ServiceClient
 {
