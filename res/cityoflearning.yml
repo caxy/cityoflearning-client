@@ -1,6 +1,6 @@
 postBadge:
     method: POST
-    path: 'partner_api/v1/orgs/{org_id}/badges/.json'
+    path: '/partner_api/v1/orgs/{org_id}/badges/.json'
 
 getOrganizationBadges:
     method: GET
@@ -9,6 +9,14 @@ getOrganizationBadges:
 getOrganizationBadge:
     method: GET
     path: '/partner_api/v1/orgs/{org_id}/badges/{id}.json'
+
+getProgramBadges:
+    method: GET
+    path: '/partner_api/v1/orgs/{org_id}/programs/{program_id}/badges.json'
+
+getProgramBadge:
+    method: GET
+    path: '/partner_api/v1/orgs/{org_id}/programs/{program_id}/badges/{id}.json'
 
 putBadge:
     method: PUT
