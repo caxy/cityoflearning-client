@@ -67,6 +67,12 @@ class ServiceClient extends GuzzleHttp\Command\ServiceClient
 
         $headers = [];
         $body = null;
+
+        if ($command->hasParam('form_params')) {
+            $headers = ['Content-Type' => 'application/x-www-form-urlencoded'];
+            $body = http_build_query($command['form_params'], '', '&');
+        }
+
         if ($command->hasParam('body')) {
             $headers = ['Content-Type' => 'application/json'];
             $body = GuzzleHttp\json_encode($command['body']);
