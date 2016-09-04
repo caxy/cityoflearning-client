@@ -7,7 +7,6 @@ use Namshi\JOSE\JWS;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
 
-
 /**
  * Class JwtMiddleware.
  */
@@ -53,7 +52,7 @@ class JwtMiddleware
 
         $payload = [
           'payload' => [
-            'key' => $this->token
+            'key' => $this->token,
           ],
         ];
 
