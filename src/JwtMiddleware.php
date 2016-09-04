@@ -55,6 +55,11 @@ class JwtMiddleware
           ],
         ];
 
+        if (in_array($request->getMethod(), ['PUT', 'POST'])) {
+            $json = \GuzzleHttp\json_decode($request->getBody(), true);
+            $payload['payload'] = array_merge($payload['payload'], $json);
+        }
+
         $jws = new JWS([
           'typ' => 'JWT',
           'alg' => 'HS256',
@@ -62,18 +67,10 @@ class JwtMiddleware
         $jws->setPayload($payload)->sign($this->secret);
         $token = $jws->getTokenString();
 
-        if ($request->getMethod() === 'POST') {
-          $data = Psr7\parse_query($request->getBody());
-          $data['jwt'] = $token;
-          $body = http_build_query($data, '', '&');
-          $request = $request->withBody(Psr7\stream_for($body));
-        }
-        else {
-          $query = Psr7\parse_query($uri->getQuery());
-          $query['jwt'] = $token;
-          $uri = $uri->withQuery(Psr7\build_query($query));
-          $request = $request->withUri($uri);
-        }
+        $query = Psr7\parse_query($uri->getQuery());
+        $query['jwt'] = $token;
+        $uri = $uri->withQuery(Psr7\build_query($query));
+        $request = $request->withUri($uri);
 
         return $request->withHeader('Authorization', 'JWT Token='.$this->token.'');
     }
