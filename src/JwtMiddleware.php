@@ -5,6 +5,7 @@ namespace Caxy\CityOfLearning;
 use GuzzleHttp\Psr7;
 use Namshi\JOSE\JWS;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\UriInterface;
 
 
 /**
@@ -47,6 +48,7 @@ class JwtMiddleware
      */
     public function __invoke(RequestInterface $request)
     {
+        /** @var UriInterface $uri */
         $uri = $request->getUri();
 
         $payload = [
